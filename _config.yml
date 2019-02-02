@@ -1,5 +1,5 @@
 # Site settings
-title: 诺坎普的年轻19号 Blog
+title: dichen16 Blog
 SEOTitle: dichen16的博客 | dichen16 Blog
 header-img: img/home-bg.jpg
 email: di.chen16@outlook.com
@@ -13,10 +13,10 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
+#weibo_username:     huxpro
 zhihu_username:     ke-nan-83-56
 github_username:    dichen16
-twitter_username:   huxpro
+#twitter_username:   huxpro
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
 
@@ -106,11 +106,8 @@ friends: [
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        title: "乱序",
-        href: "http://mida.re/"
-    },{
-        title: "前端外刊评论",
-        href: "http://qianduan.guru/"
+        title: "坑猪",
+        href: "http://space.bilibili.com/2270009/"
     },{
         title: "天镶的博客",
         href: "http://lingyu.wang/"
