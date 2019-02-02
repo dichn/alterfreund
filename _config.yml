@@ -14,7 +14,7 @@ future: true
 # SNS settings
 RSS: false
 weibo_username:     huxpro
-zhihu_username:     huxpro
+zhihu_username:     我是cd
 github_username:    huxpro
 twitter_username:   huxpro
 #facebook_username:  huxpro
@@ -59,7 +59,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+disqus_username: dichen16
 
 # Netease settings
 netease_comment: false
@@ -72,7 +72,7 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_domain: auto
 
 
 
