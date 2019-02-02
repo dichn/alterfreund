@@ -3,7 +3,7 @@ title: dichen16 Blog
 SEOTitle: dichen16的博客 | dichen16 Blog
 header-img: img/home-bg.jpg
 email: di.chen16@outlook.com
-description: "关于程序与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
+description: "C++工程师 | dichen16，Software Engineer, Soccer fan, Ceph Enthusiast | 这里是 @dichen16 的个人博客，与你一起发现更大的世界。"
 keyword: "博客, 个人网站, 互联网, CPP, 后端, 存储, Ceph, Kubernetes, RabbitMQ, Kafka"
 url: "https://dichen16.github.io"       # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -78,7 +78,7 @@ ga_domain: auto
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "For the next quantum leap<br>离开世界之前，一切都是过程"
+sidebar-about-description: "Here I am <br>32岁的亨利就坐在那里，深情的目光望过去，都是自己22岁的影子"
 sidebar-avatar: /img/avatar-chendi.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
