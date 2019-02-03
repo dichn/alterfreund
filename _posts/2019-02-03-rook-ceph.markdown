@@ -3,7 +3,7 @@ layout: post
 title: "Rook and Ceph"
 subtitle: "Rook is cool"
 author: "dichen16"
-header-img: "img/post-bg-dreamer.jpg"
+header-img: "img/kubernetes.png"
 header-mask: 0.4
 tags:
   - Ceph
