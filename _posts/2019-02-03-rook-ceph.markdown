@@ -13,12 +13,16 @@ tags:
 
 > 容器式部署固然方便，但是控制的精密性不如二进制部署，有点像CUDA编程的runtime API和driver API
 
+## K8S Volume
+
 Kubernetes的普通volume与Pod的生命周期相同，Kubernetes提供了非常丰富的volume类型
 
 - emptyDir: 该类型的volume实在Pod分配到Node时创建的，初始内容为空，重启Pod会清空volume内的数据
 - NFS：使用NFS网络文件系统提供的共享目录存储数据
 
 除此之外还有很多，我主要是用的NFS，写yaml文件并不复杂。
+
+## K8S PV & PVC
 
 这篇文章主要是讲一下，我在使用CephFS的PV碰到的一些问题，首先将介绍一下PV，和简单Volume是定义在Pod上的不同，PV是独立于Pod之外定义的，作为kubernetes集群内跨主机的存储方式，PV只能是网络存储，不属于任何Node。
 
