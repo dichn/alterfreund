@@ -1,0 +1,32 @@
+---
+layout: post
+title: "Rook and Ceph"
+subtitle: "Rook is cool"
+author: "dichen16"
+header-img: "img/post-bg-dreamer.jpg"
+header-mask: 0.4
+tags:
+  - Ceph
+  - Kubernetes
+  - Rook
+---
+
+> 容器式部署固然方便，但是控制的精密性不如二进制部署，有点像CUDA编程的runtime API和driver API
+
+Kubernetes的普通volume与Pod的生命周期相同，Kubernetes提供了非常丰富的volume类型
+
+- emptyDir: 该类型的volume实在Pod分配到Node时创建的，初始内容为空，重启Pod会清空volume内的数据
+- NFS：使用NFS网络文件系统提供的共享目录存储数据
+
+除此之外还有很多，我主要是用的NFS，写yaml文件并不复杂。
+
+这篇文章主要是讲一下，我在使用CephFS的PV碰到的一些问题，首先将介绍一下PV，和简单Volume是定义在Pod上的不同，PV是独立于Pod之外定义的，作为kubernetes集群内跨主机的存储方式，PV只能是网络存储，不属于任何Node。
+
+如果某个Pod想申请某种类型的PV，是需要在定义Pod时，指定与PV绑定的PVC的。
+
+PV和PVC的绑定，分为静态和动态两种类型，与此相对应的是PV的provision模式，即资源提供方式，也分为两种类型，静态和动态。与RBD服务类似，要想在kubernetes里使用CephFS，也需要一个cephfs-provisioner服务[CephFS Volume Provisioner for Kubernetes 1.5+](https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs)，在Rook代码里默认还不支持这个，所以需要单独部署。
+
+cephfs-provisioner镜像的制作，依赖go的环境，我在按照官方文档做镜像的时候踩了不少坑，首先是源代码的下载，不要直接git clone官方仓库的master branch，而是需要去release列表下载cephfs的tar包，我在go get相关go的依赖时，一直拉不下来，后来发现资源好像是在the Wall之外。我是爬出去把依赖下载下的，不知道直接把源码包丢到go的root/src路径下行不行。make一下就把可执行文件编译好了，然后docker build把镜像做好，再然后把容器启动起来，创建PVC就可以动态绑定动态provision的PV了。
+
+> cephfs-provisioner的镜像可以直接pull我的。`docker push hermitibis/cephfs-provisioner`
+
