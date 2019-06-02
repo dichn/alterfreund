@@ -1,0 +1,222 @@
+---
+layout:      post
+title:      "Set Up Kubernetes 1.11 For Ubuntu And CentOS"
+subtitle:   "Use Kubeadm"
+date:        2019-02-03
+author:     "dichen16"
+header-img: "img/kubernetes.png"
+catalog:     true
+header-mask: 0.4
+tags:
+  - Kubernetes
+  - DevOps
+---
+
+## Preflight
+
+```bash
+## CentOS 7.5
+$ rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+$ rpm -Uvh https://centos7.iuscommunity.org/ius-release.rpm
+$ yum groupinstall "Development Tools"
+$ yum install openssh-server vim cmake gcc gcc-c++ gcc-gfortran openssl-devel libjpeg-devel libpng-devel libtiff-devel jasper-libs jasper-devel atlas-devel lapack-devel blas-devel protobuf-devel openexr-devel ilmbase-devel git yasm
+$ echo '/usr/local/lib' >> /etc/ld.so.conf.d/usr_local_lib.conf
+$ echo '/usr/local/lib64' >> /etc/ld.so.conf.d/usr_local_lib.conf
+
+## 注意修改主机名为有意义的名字
+```
+
+```bash
+## Ubuntu16.04
+$ sudo dpkg-reconfigure dash #linux将sh默认指向了dash，而不是bash
+## google地址被墙的情况下可以使用阿里云或者中科大的镜像站
+$ sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+$ sudo curl -s https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add -
+$ sudo tee /etc/apt/sources.list.d/kubernetes.list <<-'EOF'
+deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main
+EOF
+$ sudo apt-get update
+$ apt-cache madison kubelet
+$ sudo apt-get install -y kubelet=1.11.1-00 kubeadm=1.11.1-00 kubectl=1.11.1-00 kubernetes-cni
+$ kubeadm init --config kubeadm.yaml   
+## 开启nvidia插件之前，记得untaint
+$kubectl taint node <node_name> <taint_info>
+
+```
+
+
+
+## Installing kubeadm, kubelet and kubectl 
+
+0. install docker
+
+```bash
+## ubuntu
+apt-get update
+apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
+apt-get -y update
+apt-get -y install docker-ce=18.06.1~ce~3-0~ubuntu
+```
+
+```centos
+## centos
+$ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+$ yum install docker-ce-18.06.1.ce-3.el7 containerd.io
+$ yum install nvidia-docker2-2.0.3-1.docker18.06.1.ce
+```
+
+
+
+```html
+https://docs.docker.com/install/linux/docker-ce/centos/
+$ sudo apt-get install docker-ce=18.06.1~ce~3-0~ubuntu
+$ sudo apt-get install  nvidia-container-runtime=2.0.0+docker18.06.1-1
+$ sudo apt-get install -y nvidia-docker2=2.0.3+docker18.06.1-1
+```
+
+1. install kubernetes e.g. yum install kubelet-1.11.1 kubeadm-1.11.1  kubectl-1.11.1 kubernetes-cni
+
+``` 
+$vim  /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+gpgcheck=0
+enable=1
+$ yum install kubelet-1.11.1 kubeadm-1.11.1  kubectl-1.11.1 kubernetes-cni
+```
+
+3. stop the firewall service
+
+```
+$ systemctl stop firewalld
+$ systemctl disable firewalld
+```
+
+4. disable swap
+
+```
+$ sudo swapoff -a
+$ sudo vi /etc/fstab ##comment /dev/mapper/centos-swap swap
+$ vim /etc/sysctl.d/k8s.conf #add the following three lines
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1    
+vm.swappiness=0
+$ sysctl --system
+$ vim /etc/sysconfig/kubelet
+KUBELET_EXTRA_ARGS="--fail-swap-on=false"
+```
+
+5. initialize relevant services
+
+```
+$ systemctl enable docker
+$ systemctl enable kubelet.service
+$ systemctl start docker
+$ systemctl start kubelet
+```
+
+6. modify kubernetes image repo
+
+```
+$ vim pullimages.sh #add the following lines
+#!/bin/bash
+images=(kube-proxy-amd64:v1.11.1 kube-scheduler-amd64:v1.11.1 kube-controller-manager-amd64:v1.11.1
+kube-apiserver-amd64:v1.11.1 etcd-amd64:3.2.18 coredns:1.1.3 pause:3.1 )
+for imageName in ${images[@]} ; do
+docker pull anjia0532/google-containers.$imageName
+docker tag anjia0532/google-containers.$imageName k8s.gcr.io/$imageName
+docker rmi anjia0532/google-containers.$imageName
+done
+$ sh pullimages.sh #pulling the images
+```
+
+7. Kubernetes Master deployment
+
+``` 
+$ vim kubeadm.yaml
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+controllerManagerExtraArgs:
+  horizontal-pod-autoscaler-use-rest-clients: "true"
+  horizontal-pod-autoscaler-sync-period: "10s"
+  node-monitor-grace-period: "10s"
+apiServerExtraArgs:
+  runtime-config: "api/all=true"
+kubernetesVersion: "v1.11.1"
+$ kubeadm init --config kubeadm.yaml   
+```
+
+8. 
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+```bash
+//install weave network plugin
+kubectl apply -f https://git.io/weave-kube-1.6
+```
+
+9. deploy Ceph with Rook
+
+```
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/operator.yaml
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/cluster.yaml
+```
+
+10. deploy dashboard
+
+```
+wget https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+docker pull anjia0532/google-containers.kubernetes-dashboard-amd64:v1.10.0
+docker tag  anjia0532/google-containers.kubernetes-dashboard-amd64:v1.10.0   k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.0
+docker rmi  anjia0532/google-containers.kubernetes-dashboard-amd64:v1.10.0 
+```
+
+```
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kube-system
+spec:
+  # 添加Service的type为NodePort
+  type: NodePort
+  ports:
+    - port: 443
+      targetPort: 8443
+      # 添加映射到虚拟机的端口,k8s只支持30000以上的端口
+      nodePort: 30001
+  selector:
+    k8s-app: kubernetes-dashboard
+```
+
+```
+kubectl apply -f   kubernetes-dashboard.yaml
+```
+
+
+
+## Flannel
+
+```bash
+#be careful to assign --pod-network-cidr 10.244.0.0/16
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+
+```
+https://github.com/MulticsYin/MulticsKubernetes
+```
+
+
+
+<img src="https://static001.geekbang.org/resource/image/12/70/12a18c84cab19f79f981c2bf918d0270.jpg" width="400px" height="300px" > 
+
+ 
