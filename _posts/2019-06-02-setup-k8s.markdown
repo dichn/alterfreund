@@ -199,12 +199,10 @@ kubectl apply -f   kubernetes-dashboard.yaml
 
 - #### Flannel
 
-```bash
-#be careful to assign --pod-network-cidr 10.244.0.0/16
+```
+//be careful to assign --pod-network-cidr 10.244.0.0/16
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-```
 
-```
 https://github.com/MulticsYin/MulticsKubernetes
 ```
 
