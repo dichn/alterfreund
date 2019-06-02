@@ -48,6 +48,7 @@ $kubectl taint node <node_name> <taint_info>
 ## Installing kubeadm, kubelet and kubectl 
 
 - #### install docker
+
 ```bash
 ## ubuntu
 apt-get update
