@@ -208,6 +208,5 @@ https://github.com/MulticsYin/MulticsKubernetes
 
 
 
-<img src="https://static001.geekbang.org/resource/image/12/70/12a18c84cab19f79f981c2bf918d0270.jpg" width="400px" height="300px" > 
-
+![School](/img/in-post/school.jpg)
  
