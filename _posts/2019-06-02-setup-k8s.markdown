@@ -47,7 +47,7 @@ $kubectl taint node <node_name> <taint_info>
 
 ## Installing kubeadm, kubelet and kubectl 
 
-0. install docker
+- #### install docker
 
 ```bash
 ## ubuntu
@@ -71,7 +71,7 @@ $ sudo apt-get install  nvidia-container-runtime=2.0.0+docker18.06.1-1
 $ sudo apt-get install -y nvidia-docker2=2.0.3+docker18.06.1-1
 ```
 
-1. install kubernetes e.g. yum install kubelet-1.11.1 kubeadm-1.11.1  kubectl-1.11.1 kubernetes-cni
+- #### install kubernetes e.g. yum install kubelet-1.11.1 kubeadm-1.11.1  kubectl-1.11.1 kubernetes-cni
 
 ``` 
 $vim  /etc/yum.repos.d/kubernetes.repo
@@ -83,14 +83,14 @@ enable=1
 $ yum install kubelet-1.11.1 kubeadm-1.11.1  kubectl-1.11.1 kubernetes-cni
 ```
 
-2. stop the firewall service
+- #### stop the firewall service
 
 ```
 $ systemctl stop firewalld
 $ systemctl disable firewalld
 ```
 
-3. disable swap
+- #### disable swap
 
 ```
 $ sudo swapoff -a
@@ -104,7 +104,7 @@ $ vim /etc/sysconfig/kubelet
 KUBELET_EXTRA_ARGS="--fail-swap-on=false"
 ```
 
-4. initialize relevant services
+- #### initialize relevant services
 
 ```
 $ systemctl enable docker
@@ -113,7 +113,7 @@ $ systemctl start docker
 $ systemctl start kubelet
 ```
 
-5. modify kubernetes image repo
+- #### modify kubernetes image repo
 
 ```
 $ vim pullimages.sh #add the following lines
@@ -128,7 +128,7 @@ done
 $ sh pullimages.sh #pulling the images
 ```
 
-6. Kubernetes Master deployment
+- #### Kubernetes Master deployment
 
 ``` 
 $ vim kubeadm.yaml
@@ -144,7 +144,7 @@ kubernetesVersion: "v1.11.1"
 $ kubeadm init --config kubeadm.yaml   
 ```
 
-7. 补充步骤，注意 
+- #### 补充步骤，注意 
 
 ```
 mkdir -p $HOME/.kube
@@ -157,14 +157,14 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f https://git.io/weave-kube-1.6
 ```
 
-9. deploy Ceph with Rook
+- #### deploy Ceph with Rook
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/operator.yaml
 kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/cluster.yaml
 ```
 
-10. deploy dashboard
+- #### deploy dashboard
 
 ```
 wget https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
@@ -199,7 +199,7 @@ kubectl apply -f   kubernetes-dashboard.yaml
 
 
 
-## Flannel
+### Flannel
 
 ```bash
 #be careful to assign --pod-network-cidr 10.244.0.0/16
