@@ -72,7 +72,7 @@ $ sudo apt-get install -y nvidia-docker2=2.0.3+docker18.06.1-1
 ```
 
 - #### install kubernetes 
-yum install kubelet-1.11.1 kubeadm-1.11.1  kubectl-1.11.1 kubernetes-cni
+
 ``` 
 $vim  /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -199,7 +199,7 @@ kubectl apply -f   kubernetes-dashboard.yaml
 
 
 
-### Flannel
+- #### Flannel
 
 ```bash
 #be careful to assign --pod-network-cidr 10.244.0.0/16
