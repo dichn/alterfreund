@@ -2,7 +2,7 @@
 layout:      post
 title:      "Set Up Kubernetes 1.11 For Ubuntu And CentOS"
 subtitle:   "Use Kubeadm"
-date:        2019-06-02
+date:        2019-04-24
 author:     "dichen16"
 header-img: "img/post-bg-unix-linux.jpg"
 catalog:     true
