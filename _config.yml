@@ -3,7 +3,7 @@ title: dichen16 Blog
 SEOTitle: dichen16的博客 | dichen16 Blog
 header-img: img/about-bg-walle.jpg
 email: di.chen16@outlook.com
-description: "C++工程师 | dichen16，Software Engineer, Soccer fan, Ceph Enthusiast | 这里是 @dichen16 的个人博客，与你一起发现更大的世界。"
+description: "C++ Developer | dichen16，Software Engineer, Soccer fan, Ceph Enthusiast | 这里是 @dichen16 的个人博客，与你一起发现更大的世界。"
 keyword: "博客, 个人网站, 互联网, CPP, 后端, 存储, Ceph, Kubernetes, RabbitMQ, Kafka"
 url: "https://dichen16.github.io"       # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -14,7 +14,7 @@ future: true
 # SNS settings
 RSS: false
 #weibo_username:     huxpro
-zhihu_username:     ke-nan-83-56
+#zhihu_username:     ke-nan-83-56
 github_username:    dichen16
 #twitter_username:   huxpro
 #facebook_username:  huxpro
@@ -78,7 +78,7 @@ ga_domain: auto
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Here I am <br>32岁的亨利就坐在那里，深情的目光望过去，都是自己22岁的影子"
+sidebar-about-description: "Hi (●°u°●)​ 」 <br> 你好啊"
 sidebar-avatar: /img/avatar-chendi.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -103,13 +103,16 @@ page-mathjax: false
 # Friends
 friends: [
     {
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
+        title: "墨迹",
+        href: "http://space.bilibili.com/2000333/"
+     },{
         title: "预习狂魔-坑猪",
         href: "http://space.bilibili.com/2270009/"
     },{
-        title: "墨迹",
-        href: "http://space.bilibili.com/2000333/"
+        title: "Inoue",
+        href: "https://github.com/binoue"
+    },{
+        title: "Kevin",
+        href: "https://github.com/kevinGC"
     }
 ]
