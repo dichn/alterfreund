@@ -250,6 +250,8 @@ student_info(*courses, **info)
 
 ## Module
 
+> https://doc.python.org/3/py-modindex.html             **Modules** has two types: built-in modules and external modules
+
 ```python
 # my_module.py
 print('here is my module')
@@ -274,12 +276,94 @@ print(index)
 print(test)
 ```
 
+
+
 #### module is not from the same directory
 
 1. (deprecated)append the path of module to the sys.path
 2. (deprecated)add the path of module to `~/.bash_profile`
 
+#### pip
+
+`pip install python-docx`
+
+`pip uninstall python-docx`
+
 ## try-except block
 
+```python
+try:
+    value = 10 / 0
+    number = int(input("Enter a number: "))
+    print(number)
+# specify specific exception
+except ZeroDivisionError as err:
+    print(err)
+# except ZeroDivisionError as err:
+# print(err)
+except ValueError:
+    print("invalid error")
+```
 
+## reading from a external file
+
+```python
+my_file = open("file.txt", "r")	#r, w, a, r+ mode
+# check if the file is readable
+print(my_file.readable())	# the "readable" method returns a boolean
+
+# spit all the info
+print(my_file.read())
+
+#read individial line
+print(my_file.readline())	# return <type 'str'> and simultaneously move the cursor
+
+for ln in my_file.readlines():
+    print(ln)
+    
+my_file.close()
+```
+
+## writing to a file
+
+```python
+my_file = open("file.txt", "a")
+#w mode: if file does not exist, there will be a new file created
+my_file.write("\nTom - HR")	#attention
+
+```
+
+## Class ，Objects，and Class Function
+
+```python
+class Student:
+    # initialize function
+    def __init__(self, name, major, gpa, is_on_probation):
+        self.name = name
+        self.major = major
+        self.gpa = gpa
+        self.is_on_probation = is_on_probation
+    def on_honor_roll(self):
+        if self.gpa >= 2.4:
+            return True
+        else:
+            return False
+    
+```
+
+## Inheritance 
+
+````python
+from Chef import Chef
+
+​```
+假如Chef类有一个make_special_dish的方法，可以在子类中重写overwrite
+回顾CPP：
+overwrite and overload
+overload：chendi（std::string name）,chendi(std::string name, int age), 也就是同名方法不同parameters
+overwrite：继承下来的方法，父类和子类的同名方法不同实现
+​```
+class ChineseChef(Chef):
+    def 
+````
 
