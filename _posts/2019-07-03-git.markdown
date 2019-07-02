@@ -1,0 +1,24 @@
+---
+layout:      post
+title:      "Git Basics"
+subtitle:   "A version control system."
+date:        2019-07-03
+author:     "dichen16"
+header-img: "img/home-bg.jpg"
+catalog:     true
+header-mask: 0.4
+tags:
+  - Git
+  - DevOps
+---
+
+## intro
+
+> <https://git-scm.com/docs>
+![git-life-cycle](/img/in-post/git-life-cycle.jpg)
+
+## commands
+
+`git commit --amend --no-edit`
+
+`git diff HEAD^ specific_file`

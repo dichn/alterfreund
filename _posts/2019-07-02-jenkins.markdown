@@ -1,0 +1,16 @@
+---
+layout:      post
+title:      "Jenkins Basics"
+subtitle:   "刚到北京"
+date:        2019-07-02
+author:     "dichen16"
+header-img: "img/home-bg.jpg"
+catalog:     true
+header-mask: 0.4
+tags:
+  - Jenkins
+  - DevOps
+  - CI/CD
+---
+
+## string
