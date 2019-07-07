@@ -1,7 +1,7 @@
 ---
 layout:      post
 title:      "Python Basics"
-subtitle:   "刚到北京"
+subtitle:   "Beijing is so hot"
 date:        2019-07-02
 author:     "dichen16"
 header-img: "img/home-bg.jpg"

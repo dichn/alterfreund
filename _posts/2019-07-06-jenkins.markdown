@@ -1,0 +1,27 @@
+---
+layout:      post
+title:      "Jenkins Basics"
+subtitle:   "Silicon Valley is an awesome TV serials"
+date:        2019-07-06
+author:     "dichen16"
+header-img: "img/home-bg.jpg"
+catalog:     true
+header-mask: 0.4
+tags:
+  - Jenkins
+  - DevOps
+  - CI/CD
+---
+
+> Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. [Jenkins Intro Documentation](https://jenkins.io/doc/) helps. 
+
+## Launch Jenkins
+
+1. in docker           `docker run -u root --rm -d -p 8080:8080 -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkinsci/blueocean `
+2. directly launch  `java -jar jenkins.war --httpPort=8080`
+3. 注意防火墙开放端口
+
+## Pipeline Syntax
+
+> Pipelines are made up of **multiple steps** that allow you to **build, test and deploy** applications. Jenkins Pipeline allows you to compose multiple steps in an easy way that can help you model any sort of automation process. [Jenkins Pipeline Documentation](https://jenkins.io/doc/book/pipeline/syntax/)
+
