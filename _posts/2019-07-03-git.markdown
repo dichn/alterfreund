@@ -12,14 +12,40 @@ tags:
   - DevOps
 ---
 
-## intro
+## remote operation
 
-> <https://git-scm.com/docs>
+After I forked a project(e.g. Envoy), it may be outdated, then how to update the local, outdated, forked project.
 
-![git-life-cycle](/img/in-post/git-life-cycle.jpg)
+> [Git rebase from remote fork repo](https://gist.github.com/ravibhure/a7e0918ff4937c9ea1c456698dcd58aa)
 
-## commands
+- git clone https://github.com/dichen16/envoy.git
+- git remote add upstream https://github.com/envoyproxy/envoy.git
+- git fetch upstream
+- git rebase upstream/master [--force-rebase, -f]
+- git push -f origin master
 
-`git commit --amend --no-edit`
+## undoing 
 
-`git diff HEAD^ specific_file`
+Talk about how to discard changes since your last commit, amending commits, cherry-picking hashes, resetting to a specific commit, and reverting to a specific commit.
+
+- git checkout <file>
+- git commit --amend [--no-edit]
+- git reflog
+- git reset <hash>
+- git reset <file> # staging file to untracked file
+- git revert
+
+## stash 
+
+When you have some changes that you want to save but aren't ready to make a commit or you need to switch branches. Changes will be saved in a temporary place
+
+- git stash save "type your message here"
+- git stash list
+- git stash apply stash@{0} 
+- git stash pop # pop out(drop) stash@{0} 
+-  git stash clear
+
+## check
+
+- git log --stat
+
