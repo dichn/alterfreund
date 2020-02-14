@@ -1,0 +1,100 @@
+---
+layout:      post
+title:      "TLS, OpenSSL, python's ssl module"
+date:        2020-02-14
+author:     "dichen16"
+header-img: "img/home-bg.jpg"
+catalog:     true
+header-mask: 0.4
+tags:
+  - python
+  - security
+---
+
+> [OpenSSL Essentials: Working with SSL Certificates, Private Keys and CSRs](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs)
+> [OpenSSL Quick Reference Guide](https://www.digicert.com/kb/ssl-support/openssl-quick-reference-guide.htm)
+> [Docker Daemon Socket with TLS](https://docs.docker.com/engine/security/https/), I want to understand this in a more 
+
+## Basic Concept
+
+- The first step to create a certificate signing request (CSR) that can be sent to a Certificate Authority (CA) (e.g., DigiCert).
+	- The CSR contains the common name(s) you want your certificate to secure, information about your company, and your public key.
+	- In order for a CSR to be created, it **needs a private key** from which the public key is extracted. This can be done by using an existing private key or generating a new private key.
+		- The private key file contains both the private key and the public key. You can extract your public key from your private key file if needed.
+	- After generating your private key, you are ready to create your CSR.
+
+- Generating SSL Certificates
+	- Generate a Self-Signed Certificate from an Existing Private Key
+	- Generate a Self-Signed Certificate from an Existing Private Key and CSR: 
+
+## Example: Docker
+
+- First, on the Docker daemon’s host machine, generate CA private and public keys:
+
+```bash
+# [-aes256] means "Encrypt the output with any supported cipher"
+openssl genrsa -aes256 -out ca-key.pem 4096
+# openssl req --help
+# -x509               Output a x509 structure instead of a cert request
+#                    (Required by some CA's)
+openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
+# You are about to be asked to enter information that will be incorporated into your certificate request.
+```
+
+- For server authentication
+
+1) Now that you have a CA, you can create a server key and certificate signing request (CSR):
+
+```bash
+openssl genrsa -out server-key.pem 4096
+openssl req -subj "/CN=$HOST" -sha256 -new -key server-key.pem -out server.csr
+```
+
+2) Next, we’re going to sign the public key with our CA with the same `ca-key.pem` and `ca.pem`:
+
+```bash
+echo subjectAltName = DNS:$HOST,IP:10.10.10.20,IP:127.0.0.1 >> extfile.cnf
+echo extendedKeyUsage = serverAuth >> extfile.cnf
+
+# -in server.csr -CA ca.pem -CAkey ca-key.pem
+openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem \
+  -CAcreateserial -out server-cert.pem -extfile extfile.cnf
+```
+
+- **in the end**, we get `server-key.pem && server-cert.pem`, and we need to configure the daemon `dockerd --tlsverify --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=server-key.pem -H=0.0.0.0:2376`
+	- ca.pem
+	- server-cert.pem
+	- server-key.pem
+
+
+-  For client authentication
+
+1) Create a client key and generate the signed certificate with the same `ca-key.pem` and `ca.pem`:
+
+```bash
+openssl genrsa -out key.pem 4096
+openssl req -subj '/CN=client' -new -key key.pem -out client.csr
+```
+
+2) Next, we’re going to sign the public key with our CA:
+```bash
+echo extendedKeyUsage = clientAuth > extfile-client.cnf
+
+# -in client.csr -CA ca.pem -CAkey ca-key.pem 
+openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem \
+  -CAcreateserial -out cert.pem -extfile extfile-client.cnf
+```
+- **in the end**, we get `key.pem && cert.pem`, and we can connect to server with `docker --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem -H=$HOST:2376 version`
+	- ca.pem
+	- cert.pem
+	- key.pem
+
+> [Secure the registry](https://docs.docker.com/registry/insecure/)
+> While it’s highly recommended to secure your registry using a TLS certificate issued by a known CA, you can choose to use self-signed certificates, or use your registry over an unencrypted HTTP connection. Either of these choices involves security trade-offs and additional configuration steps.
+
+- Use self-signed certificates
+	- Generate your own certificate:
+	- Use the result **cert and key** to start your registry with TLS enabled.
+	- Instruct every Docker daemon to trust that certificate. The way to do this depends on your OS.
+
+
