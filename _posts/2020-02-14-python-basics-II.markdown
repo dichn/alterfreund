@@ -55,7 +55,7 @@ class date:
 
 ```
 
-## __init__, __new__, and "cls"
+## `__init__`, `__new__`, and "cls"
 
 > [why-is-init-always-called-after-new](https://stackoverflow.com/questions/674304/why-is-init-always-called-after-new)
 
