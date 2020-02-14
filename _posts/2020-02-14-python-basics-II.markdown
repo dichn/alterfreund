@@ -27,9 +27,9 @@ Like list comprehensions, generator expressions allow you to quickly create a ge
 ## Method Types in Python OOP: @classmethod, @staticmethod, and Instance Methods
 
 - @classmethod usage
+
 ```
 class date:
-    # ... skipped ...
 
     def __new__(cls, year, month=None, day=None):
         """Constructor.
@@ -38,8 +38,6 @@ class date:
 
         year, month, day (required, base 1)
         """
-    
-    # ... skipped ...
 
     # Additional constructors
 
