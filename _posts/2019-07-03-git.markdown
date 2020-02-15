@@ -50,3 +50,18 @@ When you have some changes that you want to save but aren't ready to make a comm
 - git log --stat
 - git config --list
 
+## troubleshooting
+
+- Error when `$git push origin master` 
+
+```bash
+To https://github.com/dichen16/dichen16.github.io.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/dichen16/dichen16.github.io.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+Solution: `$ git reset --hard origin/master`
