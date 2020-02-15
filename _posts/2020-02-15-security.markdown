@@ -27,6 +27,8 @@ tags:
 	- Generate a Self-Signed Certificate from an Existing Private Key
 	- Generate a Self-Signed Certificate from an Existing Private Key and CSR: 
 
+- Get the expire date
+    - `$ openssl x509 -in [cert file] -noout -enddate`
 ## Example: Docker
 
 - First, on the Docker daemon’s host machine, generate CA private and public keys:
