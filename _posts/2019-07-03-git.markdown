@@ -55,6 +55,7 @@ When you have some changes that you want to save but aren't ready to make a comm
 - Error when `$git push origin master` 
 
 ```bash
+$ git push orgin master
 To https://github.com/dichen16/dichen16.github.io.git
  ! [rejected]        master -> master (non-fast-forward)
 error: failed to push some refs to 'https://github.com/dichen16/dichen16.github.io.git'
@@ -62,6 +63,14 @@ hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Integrate the remote changes (e.g.
 hint: 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[出界大王@dilaptop dichen16.github.io]$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
 ```
 
-Solution: `$ git reset --hard origin/master`
+> [Your branch and 'origin/master' have diverged](https://stackoverflow.com/questions/2452226/master-branch-and-origin-master-have-diverged-how-to-undiverge-branches/2452610)
