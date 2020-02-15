@@ -48,4 +48,5 @@ When you have some changes that you want to save but aren't ready to make a comm
 ## check
 
 - git log --stat
+- git config --list
 
