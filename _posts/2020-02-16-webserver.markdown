@@ -14,7 +14,7 @@ tags:
 
 > Thanks to [Digitalocean Guide](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-7) and [Secure Httpd](https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-apache-http-server/)
 
-#### SeLinux 
+#### SELinux 
 
 - get all SELinux Booleans: `getsebool -a` 
 	-  `sudo semanage boolean -l` can **State  Default Description**
@@ -28,6 +28,7 @@ and directories with the `httpd_sys_content_t` type context.
 	- [-a, --add]             Add a record of the fcontext object type
 	- [-t TYPE, --type TYPE]  SELinux Type for the object
 - restorecon -R -v 
+
 #### AllowOverride
 
 > [Official Doc](https://httpd.apache.org/docs/2.4/mod/core.html#allowoverride)
@@ -36,7 +37,7 @@ I got this `The requested URL was not found on this server.` when `AllowOverride
 
 #### Reminder
 
-After adding new .conf file, remember to the [local DNS resolver](https://en.wikipedia.org/wiki/Hosts_(file)).
+After adding new .conf file, remember to update the [local DNS resolver](https://en.wikipedia.org/wiki/Hosts_(file)).
 
 ```
 # need the maps hostnames to IP addresse
