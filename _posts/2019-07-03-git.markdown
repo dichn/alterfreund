@@ -29,7 +29,7 @@ After I forked a project(e.g. Envoy), it may be outdated, then how to update the
 Talk about how to discard changes since your last commit, amending commits, cherry-picking hashes, resetting to a specific commit, and reverting to a specific commit.
 
 - git checkout <file>
-- git commit --amend [--no-edit]
+- git commit --amend [--no-edit(Tom's habbit: deprecated)]
 - git reflog
 - git reset <hash>
 - git reset <file> # staging file to untracked file
