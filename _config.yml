@@ -78,7 +78,7 @@ ga_domain: auto
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Hi (●°u°●)​ 」 <br> 你好啊"
+sidebar-about-description: "Hi (●°u°●)​ 」 <br> 勇气徽章持有者"
 sidebar-avatar: /img/avatar-chendi.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

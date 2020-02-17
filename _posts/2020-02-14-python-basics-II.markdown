@@ -103,4 +103,8 @@ def __new__(cls, year, month=None, day=None):
 
 **ssl, TLS, cert stuff always confused me**
 
+## Module, Packge, and `__init__.py`
 
+A [module](https://docs.python.org/3/tutorial/modules.html) is a file containing Python definitions and statements.The file name is the module name with the suffix .py appended. 
+
+Technically, a [package]() is a Python module with an __path__ attribute. 

@@ -1,0 +1,22 @@
+---
+layout:      post
+title:      "2020 Tech Debt"
+subtitle:   "Tech Debt before I am 25, 努力"
+date:        2021-01-06
+author:     "dichen16"
+header-img: "img/home-bg.jpg"
+catalog:     true
+header-mask: 0.4
+tags:
+  - web-server
+---
+
+## Jan & Feb
+
+- <del>Openssl & certificate basics</del>
+	- `2.15` learn the basicall cert generation process
+- **Apache httpd**: Basic Skill
+	- `2.17` learn basicall terminology
+- **Ansible**: DevOps Tool helps a lot 
+
+## 
