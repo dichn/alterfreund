@@ -95,7 +95,12 @@ def __new__(cls, year, month=None, day=None):
     return self
 ```
 
-## krbV
+## kerberos and requests-kerberos
+
+> [requests-kerberos](https://github.com/requests/requests-kerberos) is an authentication handler for using Kerberos with Python Requests.
+> [This is Apple's kerberos library](https://github.com/apple/ccs-pykerberos)
+
+
 
 ## ssl module 
 
