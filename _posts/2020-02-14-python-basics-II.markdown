@@ -100,6 +100,12 @@ def __new__(cls, year, month=None, day=None):
 > [requests-kerberos](https://github.com/requests/requests-kerberos) is an authentication handler for using Kerberos with Python Requests.
 > [This is Apple's kerberos library](https://github.com/apple/ccs-pykerberos)
 
+## The Python Mock Library
+
+> [Real Python's MockGuide](https://realpython.com/python-mock-library/)
+
+
+
 
 
 ## ssl module 

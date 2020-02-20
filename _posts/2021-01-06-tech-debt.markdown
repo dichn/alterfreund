@@ -27,10 +27,19 @@ tags:
 ## Multilingual
 
 - python
-    - pipenv and Pipfile.lock
+    - `pipenv` and `Pipfile.lock`
+    - mock library
+    - [sphinx](https://www.sphinx-doc.org/en/1.5/index.html)
+    - `setup.py`, `setup.cfg` and site-packages
+    - tox
+    - [pkgutil](https://docs.python.org/3.0/library/pkgutil.html) and `__path__` in `__init__.py`
 
+## Testing
+
+- the value of your tests depends on how well they demonstrate these criteria. Obstacles such as complex logic and unpredictable dependencies make writing valuable tests difficult.
 ## Others
 
 - kerberos & [GSSAPI](https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface)
 	- [keytab](https://web.mit.edu/kerberos/krb5-devel/doc/basic/keytab_def.html)
 	- kerberos and requests_kerberos library
+- Timestamp & ISO8601 datetime 

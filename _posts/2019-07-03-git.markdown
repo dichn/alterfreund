@@ -50,6 +50,11 @@ When you have some changes that you want to save but aren't ready to make a comm
 - git log --stat
 - git config --list
 
+
+## Others
+
+- git fetch [FETCH_HEAD](https://stackoverflow.com/questions/9237348/what-does-fetch-head-in-git-mean)
+
 ## troubleshooting
 
 - Error when `$git push origin master` 
@@ -74,3 +79,18 @@ nothing to commit, working tree clean
 ```
 
 > [Your branch and 'origin/master' have diverged](https://stackoverflow.com/questions/2452226/master-branch-and-origin-master-have-diverged-how-to-undiverge-branches/2452610)
+
+- SSL certificate problem: self signed certificate in certificate chain
+
+Error is 
+
+```bash
+Running command git clone -q https://gitlab.cee.cutecat.com/XXX/XXX.git /tmp/pip-install-c6ettttp/XXX
+  fatal: unable to access 'https://gitlab.cee.cutecat.com/XXX/XXX.git/': SSL certificate problem: self signed certificate in certificate chain
+ERROR: Command errored out with exit status 128: git clone -q https://gitlab.cee.cutecat.com/XXX/XXX.git /tmp/pip-install-c6ettttp/XXX Check the logs for full command output.
+```
+
+Solution is [here](https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate) 
+
+`git config --global http.sslVerify false`
+
