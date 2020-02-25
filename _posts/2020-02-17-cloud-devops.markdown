@@ -13,4 +13,24 @@ tags:
 
 ## OpenStack
 
-## Server Migration
+#### Server Migration
+
+> [Guide](https://docs.fuga.cloud/migrate-an-instance-from-one-openstack-to-another)
+
+```bash
+# get image info
+$ openstack image list | grep dichen
+
+# save the image
+$ openstack image save --file <file_name> <image_id>
+
+# upload the image to another provider
+## download another RC file and source it
+source <another .RC>
+
+## upload the image from local file
+$ openstack image create --container-format bare --disk-format qcow2 --file <image_file_path> <name_your_snapshot>
+ 
+# launch the instance
+$ openstack server create --flavor <flavor> --network <network_name> --security-group <name_of_sc> --image <snapshot_name>  <name_your_instance>
+```

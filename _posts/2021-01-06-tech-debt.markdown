@@ -30,7 +30,7 @@ tags:
     - `pipenv` and `Pipfile.lock`
     - mock library
     - [sphinx](https://www.sphinx-doc.org/en/1.5/index.html)
-    - `setup.py`, `setup.cfg` and site-packages
+    - `setup.py`, `setup.cfg`, site-packages, [setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html)
     - tox
     - [pkgutil](https://docs.python.org/3.0/library/pkgutil.html) and `__path__` in `__init__.py`
 
@@ -42,4 +42,5 @@ tags:
 - kerberos & [GSSAPI](https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface)
 	- [keytab](https://web.mit.edu/kerberos/krb5-devel/doc/basic/keytab_def.html)
 	- kerberos and requests_kerberos library
-- Timestamp & ISO8601 datetime 
+- Timestamp & ISO8601 datetime
+- [Makefile](https://stackoverflow.com/questions/3220277/what-do-the-makefile-symbols-and-mean)
