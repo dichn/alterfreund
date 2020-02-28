@@ -119,3 +119,7 @@ def __new__(cls, year, month=None, day=None):
 A [module](https://docs.python.org/3/tutorial/modules.html) is a file containing Python definitions and statements.The file name is the module name with the suffix .py appended. 
 
 Technically, a [package]() is a Python module with an __path__ attribute. 
+
+## `pip` 
+
+> WARNING: Running pip install with root privileges is generally not a good idea. Try `pip install --user` instead.

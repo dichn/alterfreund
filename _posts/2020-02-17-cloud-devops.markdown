@@ -34,3 +34,35 @@ $ openstack image create --container-format bare --disk-format qcow2 --file <ima
 # launch the instance
 $ openstack server create --flavor <flavor> --network <network_name> --security-group <name_of_sc> --image <snapshot_name>  <name_your_instance>
 ```
+
+## Docker
+
+- use docker without sudo
+
+```bash
+# add 
+[root@dichen-tools dichen]# sudo groupadd docker
+[root@dichen-tools dichen]# sudo usermod -aG docker $USER
+[root@dichen-tools dichen]# newgrp docker 
+# undo
+[root@dichen-tools dichen]# gpasswd -d $USER docker
+```
+
+## KVM
+
+- [Network Bridge](https://computingforgeeks.com/how-to-create-a-linux-network-bridge-on-rhel-centos-8/)
+- [Network Interface Bonding](https://linuxconfig.org/how-to-configure-network-interface-bonding-on-red-hat-enterprise-linux-8)
+- [KVM with non-root-user](https://computingforgeeks.com/use-virt-manager-as-non-root-user/)
+- `touch /etc/cloud/cloud-init.disabled` if the image is exported from OpenStack
+
+```bash
+$ sudo virt-install --name=dichen --memory=2048 --vcpus=2 --file=/home/dichen/Downloads/iso/rpulp.qcow2 --network bridge=virbr0,model=virtio --graphics type=vnc,port=6900,listen=0.0.0.0 --import
+
+$ virsh list --all
+```
+
+## Linux
+
+#### RPM Package and Tom
+
+- [`$ rpm -qf {file_path}`](https://unix.stackexchange.com/questions/4705/which-fedora-package-does-a-specific-file-belong-to) is used to query a file

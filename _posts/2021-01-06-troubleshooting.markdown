@@ -11,7 +11,9 @@ tags:
   - notes
 ---
 
-## Max retries exceeded with url
+## Others
+
+#### Max retries exceeded with url
 
 ```
 (pipenv_G) [dichen@dilaptop Downloads]$ openstack image create --container-format bare --disk-format raw --file ./dichen-ss.raw dichen-tools
@@ -20,3 +22,7 @@ Unable to establish connection to https://<somewebsite.com>:<someport>/v3/auth/t
 ```
 
 > [Turn off proxy solved my question, but don't know why](https://stackoverflow.com/questions/23013220/max-retries-exceeded-with-url-in-requests), I guess it's a [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) issue.
+
+#### `/tmp` dir
+
+> [clear time](https://serverfault.com/questions/377348/when-does-tmp-get-cleared/377349)

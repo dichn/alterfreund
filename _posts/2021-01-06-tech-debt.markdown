@@ -16,6 +16,7 @@ tags:
 
 - <del>Openssl & certificate basics</del>
 	- `2.15` learn the basicall cert generation process
+- <del>KVM & `nmcli` for Network Bridge</del>
 - **Apache httpd**: Basic Skill
 	- `2.17` learn basicall terminology
 - **Ansible**: DevOps Tool helps a lot 
@@ -29,6 +30,8 @@ tags:
 - python
     - `pipenv` and `Pipfile.lock`
     - mock library
+    - `hypothesis` expand test coverage
+    - tmp file system to store tmp data
     - [sphinx](https://www.sphinx-doc.org/en/1.5/index.html)
     - `setup.py`, `setup.cfg`, site-packages, [setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html)
     - tox
