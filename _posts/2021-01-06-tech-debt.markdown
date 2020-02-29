@@ -15,7 +15,7 @@ tags:
 ## Jan & Feb
 
 - <del>Openssl & certificate basics</del>
-	- `2.15` learn the basicall cert generation process
+	- <del>`2.15 & 3.1` learn the basicall cert generation process</del>
 - <del>KVM & `nmcli` for Network Bridge</del>
 - **Apache httpd**: Basic Skill
 	- `2.17` learn basicall terminology
@@ -47,3 +47,4 @@ tags:
 	- kerberos and requests_kerberos library
 - Timestamp & ISO8601 datetime
 - [Makefile](https://stackoverflow.com/questions/3220277/what-do-the-makefile-symbols-and-mean)
+- django-summernote

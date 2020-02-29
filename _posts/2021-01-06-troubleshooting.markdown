@@ -26,3 +26,22 @@ Unable to establish connection to https://<somewebsite.com>:<someport>/v3/auth/t
 #### `/tmp` dir
 
 > [clear time](https://serverfault.com/questions/377348/when-does-tmp-get-cleared/377349)
+
+#### TLS, `TLS alert, unknown CA (560)`, `TLS alert, illegal parameter`, `SSLCertificate Chain`
+
+```bash
+# (optional) Modify SSLCertificateChainFile
+$ cat ca.crt >> chain.crt
+$ cat server.crt >> chain.crt 
+
+# modify /etc/httpd/conf.d/ssl.conf
+    'SSLCertificateChainFile /etc/pki/example/chain.crt'
+
+# [important] login to the client machine to require the certificate
+$ openssl s_client -showcerts -servername rpulp-e2e -connect rpulp-e2e:443 > cacert.pem
+
+# check the cert's detail
+$ openssl x509 -noout -modulus -in ~/cacert.pem
+```
+
+- Pay attention to the certificate's `CN(common name)`, It's better to be the IP_ADDR
