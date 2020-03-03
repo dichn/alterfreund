@@ -19,7 +19,8 @@ tags:
 - <del>KVM & `nmcli` for Network Bridge</del>
 - **Apache httpd**: Basic Skill
 	- `2.17` learn basicall terminology
-- **Ansible**: DevOps Tool helps a lot 
+- **Ansible**: DevOps Tool helps a lot [major]
+    - role and playbook
 
 ## OS
 
@@ -29,6 +30,7 @@ tags:
 
 - python
     - `pipenv` and `Pipfile.lock`
+    - `.egg` and `dist-info` and `wheel`
     - mock library
     - `hypothesis` expand test coverage
     - tmp file system to store tmp data
@@ -40,6 +42,7 @@ tags:
 ## Testing
 
 - the value of your tests depends on how well they demonstrate these criteria. Obstacles such as complex logic and unpredictable dependencies make writing valuable tests difficult.
+
 ## Others
 
 - kerberos & [GSSAPI](https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface)
@@ -48,3 +51,11 @@ tags:
 - Timestamp & ISO8601 datetime
 - [Makefile](https://stackoverflow.com/questions/3220277/what-do-the-makefile-symbols-and-mean)
 - django-summernote
+
+## Others for Tom
+
+- CI/CD pipeline build
+- network infrastructure and performance optimization, including SR-IOV, DPDK, NUMA
+- Latency sensitive workload tuning, e.g., IEQ lines, CPU pinning, NUMA affinity
+- software-defined networking [(SDN)](https://medium.com/@zhaohuabing/what-can-service-mesh-learn-from-sdn-1a4874edca03)-related development contribution
+- [ISCSI](https://en.wikipedia.org/wiki/ISCSI) with **C**

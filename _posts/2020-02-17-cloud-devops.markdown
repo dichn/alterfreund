@@ -66,3 +66,16 @@ $ virsh list --all
 #### RPM Package and Tom
 
 - [`$ rpm -qf {file_path}`](https://unix.stackexchange.com/questions/4705/which-fedora-package-does-a-specific-file-belong-to) is used to query a file
+- `repoquery -ql <package>`
+## AWS
+
+#### How to attach the Lambda to CloudFront Distro
+
+> [ add triggers for CloudFront events to a Lambda function](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-add-triggers-cf-console.html)
+> [a Lambda function is triggered by a CloudFront viewer request event](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-cloudfront-trigger-events.html)
+
+- pay attention to `Lambda Execution role` related with IAM
+
+## Kubernetes
+
+> [minikube on kvm](https://computingforgeeks.com/how-to-run-minikube-on-kvm/)
