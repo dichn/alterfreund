@@ -48,6 +48,11 @@ $ openstack server create --flavor <flavor> --network <network_name> --security-
 [root@dichen-tools dichen]# gpasswd -d $USER docker
 ```
 
+- Get repo info from a remote registry
+    - `$ curl -X GET https://<IP_ADDR>:5000/v2/_catalog -k`
+- [Protect the Docker daemon socket](https://docs.docker.com/engine/security/https/)
+- [Protest the DOcker Registry](https://docs.docker.com/registry/insecure/#use-self-signed-certificates)
+
 ## KVM
 
 - [Network Bridge](https://computingforgeeks.com/how-to-create-a-linux-network-bridge-on-rhel-centos-8/)
@@ -67,6 +72,8 @@ $ virsh list --all
 
 - [`$ rpm -qf {file_path}`](https://unix.stackexchange.com/questions/4705/which-fedora-package-does-a-specific-file-belong-to) is used to query a file
 - `repoquery -ql <package>`
+- `package-cleanup --cleandupes`
+
 ## AWS
 
 #### How to attach the Lambda to CloudFront Distro
