@@ -1,6 +1,6 @@
 ---
 layout:      post
-title:      "Tom's Industry Understanding"
+title:      "Tom's Industry Basics"
 date:        2020-03-07
 author:     "dichen16"
 header-img: "img/home-bg.jpg"
@@ -31,7 +31,7 @@ tags:
 
 **Before removing the vg, deactivate it first**
 
-##### #expand logical volume and the related file system
+#### Expand logical volume and the related file system
 
 ```bash
 # prepare a standard partion already with dichen

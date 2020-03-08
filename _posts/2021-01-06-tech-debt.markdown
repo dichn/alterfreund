@@ -19,7 +19,7 @@ tags:
 - <del>KVM & `nmcli` for Network Bridge</del>
 - **Apache httpd**: Basic Skill
 	- `2.17` learn basicall terminology
-- **Ansible**: DevOps Tool helps a lot [major]
+- **Ansible**: DevOps Tool helps a lot **[Major]**
     - role and playbook
 
 ## OS
@@ -30,14 +30,15 @@ tags:
 ## Multilingual
 
 - python
-    - `pipenv` and `Pipfile.lock`
-    - `.egg` and `dist-info` and `wheel`
-    - mock library
+    - <del>`pipenv` and `Pipfile.lock`</del> 
+    - <del>`.egg` and `dist-info` and `wheel`</del>
+    - <del>mock and patch</del>
     - `hypothesis` expand test coverage
-    - tmp file system to store tmp data
+    - tmp file system to store tmp data in pytest
     - [sphinx](https://www.sphinx-doc.org/en/1.5/index.html)
     - `setup.py`, `setup.cfg`, site-packages, [setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html)
-    - tox and mypy
+    - tox 
+    - mypy
     - [pkgutil](https://docs.python.org/3.0/library/pkgutil.html) and `__path__` in `__init__.py`
 
 ## Testing
