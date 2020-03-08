@@ -24,7 +24,8 @@ tags:
 
 ## OS
 
-- LVM
+- <del>LVM</del>
+    - <del>expand a logical volume and the filesystem on that lv</del>
 
 ## Multilingual
 

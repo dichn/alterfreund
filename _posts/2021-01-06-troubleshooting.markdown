@@ -27,7 +27,7 @@ Unable to establish connection to https://<somewebsite.com>:<someport>/v3/auth/t
 
 > [clear time](https://serverfault.com/questions/377348/when-does-tmp-get-cleared/377349)
 
-#### TLS, `TLS alert, unknown CA (560)`, `TLS alert, illegal parameter`, `SSLCertificate Chain`
+#### `TLS alert, unknown CA (560)`, `TLS alert, illegal parameter`, `SSLCertificate Chain`
 
 ```bash
 # (optional) Modify SSLCertificateChainFile
@@ -46,14 +46,19 @@ $ openssl x509 -noout -modulus -in ~/cacert.pem
 
 - Pay attention to the certificate's `CN(common name)`, It's better to be the IP_ADDR
 
+#### LVM Expand logical volume and it's related file system
+
+- sysptom: `resize2fs: Bad magic number in super-block while trying to open`
+- diagnosis: [xfs_growfs rather than resize2fs](https://stackoverflow.com/questions/26305376/resize2fs-bad-magic-number-in-super-block-while-trying-to-open)
+
 ## Docker
+
+- for a user want to pull or push image to a private registry, need to get a SSLCertificateFile(also is REGISTRY_HTTP_TLS_CERTIFICATE) from the remote registry server, and add it to `/etc/docker/certs.d/<remote_registry_ip_addr:port>` 
 
 #### [secure registry](https://stackoverflow.com/questions/34151612/docker-open-certs-domain-crt-permission-denied)
 
 - symptom: ` open /certs/domain.crt: permission denied`
 - diagnosis: `SELinux setup issue`
-
-#### []
 
 #### [can not push to private registry](https://docs.docker.com/engine/security/certificates/)
 
@@ -82,3 +87,5 @@ $ openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pe
 $ cp server-key.pem domain.key
 $ cp server-cert.pem domain.crt 
 ```
+
+
