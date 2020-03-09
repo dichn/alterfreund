@@ -76,6 +76,8 @@ $ virsh list --all
 
 ## AWS
 
+CloudFront -> Lambda -> S3
+
 #### How to attach the Lambda to CloudFront Distro
 
 > [ add triggers for CloudFront events to a Lambda function](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-add-triggers-cf-console.html)
@@ -86,3 +88,5 @@ $ virsh list --all
 ## Kubernetes
 
 > [minikube on kvm](https://computingforgeeks.com/how-to-run-minikube-on-kvm/)
+
+## OpenShift

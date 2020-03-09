@@ -66,3 +66,7 @@ log      =internal               bsize=4096   blocks=2866, version=2
 realtime =none                   extsz=4096   blocks=0, rtextents=0
 data blocks changed from 12424192 to 14521344
 ```
+
+## Net
+
+![OSI Model](https://miro.medium.com/max/4000/1*-hQHFX-UjlruHDf9Je0lXg.png)
