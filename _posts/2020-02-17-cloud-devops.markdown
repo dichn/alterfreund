@@ -71,7 +71,10 @@ $ virsh list --all
 #### RPM Package and Tom
 
 - [`$ rpm -qf {file_path}`](https://unix.stackexchange.com/questions/4705/which-fedora-package-does-a-specific-file-belong-to) is used to query a file
-- `repoquery -ql <package>`
+- `repoquery -ql <package>`     # list files the package installed
+- `rpm -q --requires pub-worker`    # get dependencies info from a package, i.e. I need who?
+- `rpm -q --whatrequires pulp-utils`    # get reverse dependencies of a package, i.e. who need me?
+- `repoquery -i pulp-server`    # get repo info from a package
 - `package-cleanup --cleandupes`
 
 ## AWS

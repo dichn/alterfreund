@@ -26,6 +26,7 @@ tags:
 
 - <del>LVM</del>
     - <del>expand a logical volume and the filesystem on that lv</del>
+- ulimit -a and [Too many open files](https://community.pivotal.io/s/article/Session-failures-with-Too-many-open-files)
 
 ## DB
 
@@ -51,10 +52,15 @@ tags:
         - tmp file system to store tmp data in pytest
     - [pkgutil](https://docs.python.org/3.0/library/pkgutil.html) and `__path__` in `__init__.py`
     - psycopg2 and learn db internals
+    - [yield None](https://stackoverflow.com/questions/13243766/python-empty-generator-function)
+    - asyncio and event_loop
     - tornado
     - celery
     - selenium
     - mypy
+- C++
+    - CMake reprospective
+    - libev
 
 ## Testing
 
