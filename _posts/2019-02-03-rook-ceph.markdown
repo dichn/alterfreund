@@ -8,9 +8,9 @@ header-img: "img/kubernetes.png"
 catalog:     true
 header-mask: 0.4
 tags:
-  - Ceph
-  - Kubernetes
-  - Rook
+  - ceph
+  - kubernetes
+  - rook
 ---
 
 > 容器式部署固然方便，但是控制的精密性不如二进制部署，有点像CUDA编程的runtime API和driver API

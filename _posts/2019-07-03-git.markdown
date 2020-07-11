@@ -8,8 +8,8 @@ header-img: "img/home-bg.jpg"
 catalog:     true
 header-mask: 0.4
 tags:
-  - Git
-  - DevOps
+  - git
+  - devops
 ---
 
 ## remote operation

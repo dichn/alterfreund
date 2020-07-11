@@ -7,8 +7,8 @@ header-img: "img/home-bg.jpg"
 catalog:     true
 header-mask: 0.4
 tags:
-  - DevOps
-  - Cloud
+  - devops
+  - cloud
 ---
 
 ## OpenStack

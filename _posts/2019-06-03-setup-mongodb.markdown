@@ -8,8 +8,8 @@ header-img: "img/post-bg-os-metro.jpg"
 catalog:     true
 header-mask: 0.4
 tags:
-  - MongoDB
-  - DevOps
+  - mongodb
+  - devops
 ---
 
 ## 部署

@@ -8,8 +8,8 @@ header-img: "img/post-bg-unix-linux.jpg"
 catalog:     true
 header-mask: 0.4
 tags:
-  - Kubernetes
-  - DevOps
+  - kubernetes
+  - devops
 ---
 
 ## Preflight
@@ -210,4 +210,3 @@ https://github.com/MulticsYin/MulticsKubernetes
 
 ![School](/img/in-post/post-school.jpg)
 
-**感谢斌哥一年的教导** 
