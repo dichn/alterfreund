@@ -52,6 +52,11 @@ $ openstack server create --flavor <flavor> --network <network_name> --security-
     - `$ curl -X GET https://<IP_ADDR>:5000/v2/_catalog -k`
 - [Protect the Docker daemon socket](https://docs.docker.com/engine/security/https/)
 - [Protest the DOcker Registry](https://docs.docker.com/registry/insecure/#use-self-signed-certificates)
+- `docker: Error response from daemon: cgroups: cgroup mountpoint does not exist: unknown.`
+```
+[dichen@dihost-amd gowiki]$ sudo mkdir /sys/fs/cgroup/systemd
+[dichen@dihost-amd gowiki]$ sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+```
 
 ## KVM
 
