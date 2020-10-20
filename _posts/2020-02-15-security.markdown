@@ -9,6 +9,8 @@ header-mask: 0.4
 tags:
   - python
   - security
+  - openssl
+  - gpg
 ---
 
 > [OpenSSL Essentials: Working with SSL Certificates, Private Keys and CSRs](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs)
@@ -100,5 +102,16 @@ openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem 
 	- Generate your own certificate:
 	- Use the result **cert and key** to start your registry with TLS enabled.
 	- Instruct every Docker daemon to trust that certificate. The way to do this depends on your OS.
+
+## GPG
+
+> [GitHub Config for gpg key](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-gpg-key) and [nice tutorial](https://www.void.gr/kargig/blog/2013/12/02/creating-a-new-gpg-key-with-subkeys/)
+
+Debugging strategy
+
+- hamburger test from captain R: `echo "hamburger" | gpg2 --encrypt -r dichen@redhat.com | gpg2 --decrypt`
+- `gpg2 --list-secret-keys --with-colons dichen@redhat.com` and `gpg2 --list-public-keys --with-colons dichen@redhat.com`
+- `gpg --armor --export XXXXXXXXXXX` # XXXXXXX is gpg key ID
+- `gpg --list-secret-keys --keyid-format LONG`
 
 

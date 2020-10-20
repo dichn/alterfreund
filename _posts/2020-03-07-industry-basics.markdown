@@ -11,6 +11,12 @@ tags:
   - basics
 ---
 
+## 一些感悟
+
+> "In your new PR make sure to explain the change.  So it's not just "add dichen key" and "update dichen key" with nobody but us understanding why this happened".
+
+This msg came from captain R. He really inspires me a lot about how to become a good engineer.
+
 ## OS
 
 #### LVM
