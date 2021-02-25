@@ -42,3 +42,22 @@ int main() {
 ## Others
 
 - [VS Code](https://code.visualstudio.com/docs/setup/linux)
+- [Golang](https://golang.org/doc/install?download=go1.16.linux-amd64.tar.gz)
+- [vim](https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim)
+
+```
+$ cat ~/.bashrc
+...
+export PATH="/usr/local/cuda-11.2/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
+
+$ $ cat ~/.vimrc 
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+```
