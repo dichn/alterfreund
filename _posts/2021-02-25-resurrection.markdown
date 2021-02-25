@@ -2,8 +2,8 @@
 layout:      post
 title:      "Mahler: Symphony No.2 Resurrection"
 subtitle:   "Tom is working on piano"
-date:        2021-01-06
-author:     "dichen16 needs IMAGINATION"
+date:        2021-02-25
+author:     "Di Chen"
 header-img: "img/home-bg.jpg"
 catalog:     true
 header-mask: 0.4
@@ -38,3 +38,7 @@ int main() {
 // nvcc -o helloWorld helloWorld.cu
 
 ```
+
+## Others
+
+- [VS Code](https://code.visualstudio.com/docs/setup/linux)
