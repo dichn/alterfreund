@@ -54,6 +54,7 @@ When you have some changes that you want to save but aren't ready to make a comm
 ## Others
 
 - git fetch [FETCH_HEAD](https://stackoverflow.com/questions/9237348/what-does-fetch-head-in-git-mean)
+- [token-based authentication for GitHub](https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push)
 
 ## troubleshooting
 
