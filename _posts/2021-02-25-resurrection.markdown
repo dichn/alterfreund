@@ -43,7 +43,7 @@ int main() {
 
 - [VS Code](https://code.visualstudio.com/docs/setup/linux)
 - [Golang](https://golang.org/doc/install?download=go1.16.linux-amd64.tar.gz)
-- [vim](https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim)
+- [vim tab setting](https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim)
 
 ```
 $ cat ~/.bashrc

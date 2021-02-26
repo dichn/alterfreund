@@ -3,7 +3,7 @@ title: dichen16 Blog
 SEOTitle: dichen16的博客 | dichen16 Blog
 header-img: img/about-bg-walle.jpg
 email: di.chen16@outlook.com
-description: "C++ Developer | dichen16，Software Engineer, Soccer fan, Ceph Enthusiast | 这里是 @dichen16 的个人博客，与你一起发现更大的世界。"
+description: "C++ Developer | dichen16，Software Engineer, Soccer fan, Ceph Enthusiast"
 keyword: "博客, 个人网站, 互联网, CPP, 后端, 存储, Ceph, Kubernetes, RabbitMQ, Kafka"
 url: "https://dichen16.github.io"       # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
