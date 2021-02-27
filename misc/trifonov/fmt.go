@@ -29,4 +29,11 @@ func main() {
 
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
+
+	car := struct {
+		Speed  int
+		Weight string
+	}{6, "tom"}
+
+	fmt.Println("car:", car)
 }
