@@ -52,6 +52,9 @@ export PATH="/usr/local/cuda-11.2/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 
+# optional
+export go111module=auto
+
 $ $ cat ~/.vimrc 
 filetype plugin indent on
 " show existing tab with 4 spaces width
