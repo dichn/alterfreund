@@ -1,7 +1,7 @@
 ---
 layout:      post
-title:      "Mahler: Symphony No.2 Resurrection"
-subtitle:   "Tom is working on piano"
+title:      "Installaion: Nvidia driver and CUDA toolkit"
+subtitle:   "Mahler: Symphony No.2 Resurrection"
 date:        2021-02-25
 author:     "Di Chen"
 header-img: "img/home-bg.jpg"
