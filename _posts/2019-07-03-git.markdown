@@ -23,6 +23,7 @@ After I forked a project(e.g. Envoy), it may be outdated, then how to update the
 - git fetch upstream
 - git rebase upstream/master [--force-rebase, -f]
 - git push -f origin master
+- git fetch upstream pull/96/head:RHELDST-7466
 
 ## undoing 
 
